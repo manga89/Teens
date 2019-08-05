@@ -16,6 +16,8 @@
 
 #main {
 	background-image: url("../img/sample.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
 	overflow: hidden;
 
 }
@@ -65,10 +67,17 @@ width:100%;
 }
 
 .card-info{
-	margin-top: 100px;
+	margin-top: 160px;
 }
 .fa_fn {
 	color:#192a56;
 	font-size:24px; 
 	padding: 15px;
+}
+
+.panel-hed{
+	background-color: #00a8ff;
+}
+.card {
+	margin-bottom: 10px;
 }
