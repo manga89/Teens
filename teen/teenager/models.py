@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -21,17 +22,19 @@ class Student(models.Model):
 	middle_name = models.CharField(max_length=225, null=True)
 	date_of_birth = models.DateField(max_length=225)
 	state_of_origin = models.CharField(max_length=20, choices = STATE_CHOICE, default='Abuja')
-	name_of_school = models.CharField(max_length = 225)
 	email_address = models.EmailField(unique = True)
+	parent_full_name = models.CharField(max_length=225)
+	parent_phone_number=models.CharField(max_length=225)
+	address = models.TextField()
 	active = models.BooleanField(default= True)
+	Image = models.ImageField(upload_to='teenager/%Y/%m/%d/')
 	phone_number = models.CharField(max_length = 11)
-
 
 
 	def __str__(self):
 		return self.first_name
 
 
-	#def get_absolute_url(self):
-    #   return reverse('personel_detail', kwargs={'pk': self.pk})
+	def get_absolute_url(self):
+		return reverse('teen_detail',kwargs={'pk':self.pk})
 

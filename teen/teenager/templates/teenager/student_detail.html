@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body class="bg-light">
+	<!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+	<div class="container">
+		 <div class="row">
+				<div class="col-sm-6">
+
+						<div class="card-new">
+							<div class="card-background">
+								<img class="card-image" src="{{ object.Image.url }}">
+							</div>
+							<div class="card-info">
+								<p><strong>{{ object.first_name }}</strong> {{object.last_name }} {{object.middle_name}}</p>			
+							</div>
+							<div class="card-social-icons">
+								 <a href="{% url 'update_teen' object.id %}"> <i class="fa fa_fn fa-edit" aria-hidden="true"></i></a>
+								<a href="mailto: {{object.email_address}}"><i class="fa fa_fn fa-envelope" aria-hidden="true"></i></a>
+							</div>
+
+						</div>
+						
+				</div>
+				<div class="col-sm-6">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Basics</h3>
+									</div>
+									<div class="panel-body panel-container">
+										<address>
+											<strong>Name</strong><br>
+											{{object.first_name}} {{object.last_name }} {{object.middle_name}}
+										</address>
+
+										<address>
+											<strong>Date of Birth</strong><br>
+											{{object.age}}
+										</address>
+
+										<address>
+											<strong>Gender</strong><br>
+											{{object.gender}}
+										</address>
+
+										<address>
+											<strong>State of Origin</strong><br>
+											{{object.state_of_origin}}
+										</address>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h3 class="panel-title">Others</h3>
+									</div>
+									<div class="panel-body">
+										<address>
+											<strong>Address</strong><br>
+											{{object.address}}
+										</address>
+
+										<address>
+											<strong>Email</strong><br>
+											<a href="mailto: {{object.email_address}}">{{object.email_address}}</a>
+										</address>
+										<address>
+											<strong>Name of Parent </strong><br>
+											{{object.parent_full_name }}
+										</address>
+										<address>
+											<strong>Parent Phone Number</strong><br>
+											{{object.parent_phone_number }}
+										</address>
+										<address>
+											<strong>Step</strong><br>
+											{{object.step}} 
+										</address>
+										<address>
+											<strong>Phone</strong><br>
+											{{ object.mobile_phone }}
+										</address>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+		</div>
+	</div>
+
+	
+</div>
+
+
+
+{% endblock %}

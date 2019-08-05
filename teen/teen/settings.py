@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'teenager.apps.TeenagerConfig',
     'accounts.apps.AccountsConfig',
     'bootstrap4',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'teen.wsgi.application'
 
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
