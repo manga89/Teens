@@ -29,5 +29,5 @@ class StudentListView(ListView):
 class StudentUpdateView(UpdateView):
 	model = Student
 	fields =['first_name', 'last_name', 'middle_name','date_of_birth','state_of_origin','email_address', 
-			'Image', 'phone_number', 'parent_full_name', 'parent_phone_number', 'address', ]
+			'image', 'phone_number', 'parent_full_name', 'parent_phone_number', 'address', ]
 	template_name ='teenager/student_form.html'

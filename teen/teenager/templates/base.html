@@ -85,20 +85,55 @@
                         </div>
                     </div>
 
-                    <div class="list-group">
+                    
                     {% with url_name=request.resolver_match.url_name %}
-                      <a href="#" class="list-group-item list-group-item-action active bgcolor main-color-bg ">
-                        <span><i class="fa fa-cogs fa-fw"></i> Dashboard</span>
-                      </a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor"><span><i class="fa fa-list fa-fw"></i></span> All</a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor"><span><i class="fa fa-free-code-camp fa-fw"></i></span> Active</a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor"><span><i class="fa fa-snowflake-o fa-fw"></i></span> Retired </a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor"><span><i class="fa fa-plus fa-fw"></i></span> Add </a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor"><span><i class="fa fa-user fa-fw"></i></span> Account </a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor "><span><i class="fa fa-user fa-fw"></i></span> New User </a>
-                      <a href="#" class="list-group-item list-group-item-action bgcolor "><span><i class="fa fa-clock-o fa-fw"></i></span> History </a>
+
+                    <!----
+                        <li class="li">
+                          <a href="#" class="list-group-item list-group-item-action bgcolor main-color-bg ">
+                            <div class="icon">
+                                <span><i class="fa fa-cogs fa-fw"></i> Dashboard</span>
+                            </div>    
+                          </a>
+                        </li>
+
+                        <li class=" bgcolor li">
+                          <a href="#" class=" ">
+                                <div class="iconi">
+                                    <i class="fa fa-fl fa-list fa-fw"></i><br/>
+                                    <i class="fa fa-fl fa-list fa-fw"></i>
+                                </div>
+                            </a>
+                           
+                        </li>
+                        --->
+
+                        <div>
+                            <ul class="ull list-group">
+                                <li class="lii list-group-item bgcolor">
+                                    <a href="{% url 'all_teens' %}">
+                                        <div class="iconn">
+                                            <i class="fa fa_fnn fa-users" aria-hidden="true"></i>
+                                            <i class="fa fa_fnn fa-users" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nam"><span data-text="All teens" >All teens</span></div>
+                                    </a>
+                                </li>
+                                <li class="lii list-group-item bgcolor">
+                                    <a href="mailto: {{object.email_address}}">
+                                        <div class="iconn">
+                                            <i class="fa fa_fnn fa-envelope" aria-hidden="true"></i>
+                                            <i class="fa fa_fnn fa-envelope" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nam"><span data-text="Email">Email</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+
                     {% endwith %}
-                    </div>
+                    </ul>
                     <div class="card bgcolor" id="well">
                         <h4>Disk space used</h4>
                         <div class="progress">

@@ -1,3 +1,7 @@
+body {
+	font-family: sans-serif;
+}
+
 .bg-new {
 	background: #182C61 !important;
 	color: #f5f6fa !important;
@@ -60,24 +64,204 @@ width:100%;
 	border-radius: 50%;
 	border: 5px solid #dcdde1;
 	width:200px;
-	height: auto;
+	height:200px;
 	position: relative;
 	top: 100px;
 
 }
 
 .card-info{
-	margin-top: 160px;
+	margin-top: 100px;
 }
-.fa_fn {
-	color:#192a56;
-	font-size:24px; 
-	padding: 15px;
-}
+
 
 .panel-hed{
 	background-color: #00a8ff;
 }
+
 .card {
 	margin-bottom: 10px;
+}
+
+.ul {
+	position: absolute;
+	top:40%;
+	left: 25%;
+	transition: translate(-50%,-50%);
+	margin:0;
+	padding:20px 0;
+	display: flex;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgb(0,0,0,0.3);
+}
+
+.ul .li {
+
+	list-style: none;
+	text-align:center;
+	display: block;
+	border-right: 1px solid rgb(0,0,0,0.2);
+
+}
+
+.ul .li:last-child{
+	border-right: none;
+}
+
+
+.ul .li a {
+
+	text-decoration: none;
+	padding: 0 50px;
+	display: block;
+
+}
+
+.ul .li a .icon {
+	width:40px;
+	height: 40px;
+	text-align: center;
+	overflow: hidden;
+	margin: 0 auto 10px;
+
+}
+
+.ul .li a .icon .fa_fn{
+	width: 100%;
+	height: 100%;
+	line-height: 40px;
+	font-size: 34px;
+	transition: 0.5s;
+	color:#192a56;
+
+}
+
+.ul .li a .icon .fa_fn:last-child {
+	color:#e91e63;
+}
+
+.ul .li a:hover .icon .fa_fn{
+	transform: translateY(-100%);
+
+}
+
+.ul .li a .nameo{
+	position: relative;
+	height: 20px;
+	display: block;
+	overflow: hidden;
+}
+
+.ul .li a .nameo span {
+	display: block;
+	position: relative;
+	color: #192a56;
+	font-size: 18px;
+	line-height: 20px;
+	transform: 0.5s;
+	
+}
+
+.ul .li a .nameo span:before {
+	content: attr(data-text);
+	position:absolute;
+	top: -100%;
+	left:0;
+	width:100%;
+	height: 100%;
+	color: #e91e63;
+
+}
+.ul .li a:hover .nameo span{
+	transform: translateY(24px);
+
+}
+
+
+
+
+
+/*  no sidebar */
+
+
+
+.ull .lii {
+
+	list-style: none;
+	display: block;
+	border-right: 1px solid rgb(0,0,0,0.2);
+
+}
+
+.ull .lii:last-child{
+	border-right: none;
+}
+
+
+.ull .lii a {
+
+	text-decoration: none;
+	padding: 0 40px;
+	display: inline;
+
+}
+
+.ull .lii a .iconn {
+	width:30px;
+	height: 40px;
+	text-align: center;
+	overflow: hidden;
+	float: right;
+
+
+}
+
+.ull .lii a .iconn .fa_fnn{
+	line-height: 40px;
+	font-size: 30px;
+	transition: 0.5s;
+	color:white;
+
+}
+
+.ull .lii a .iconn .fa_fnn:last-child {
+	color:#e91e63;
+}
+
+.ull .lii a:hover .iconn .fa_fnn{
+	transform: translateY(-100%);
+
+}
+
+.ull .lii a .nam{
+	position: relative;
+	height: 20px;
+	display: block;
+	overflow: hidden;
+	padding-left: 20px; 
+}
+
+.ull .lii a .nam span {
+	display: block;
+	position: relative;
+	color: white;
+	font-size: 18px;
+	line-height: 20px;
+	transform: 0.5s;
+	
+}
+
+.ull .lii a .nam span:before {
+	content: attr(data-text);
+	position:absolute;
+	top: -100%;
+	left:0;
+	width:100%;
+	height: 100%;
+	color: #e91e63;
+
+}
+.ull .lii a:hover .nam span{
+	transform: translateY(24px);
+
 }

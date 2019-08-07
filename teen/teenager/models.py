@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from PIL import Image
 # Create your models here.
 
 #models for the teenagers.
@@ -27,7 +27,7 @@ class Student(models.Model):
 	parent_phone_number=models.CharField(max_length=225)
 	address = models.TextField()
 	active = models.BooleanField(default= True)
-	Image = models.ImageField(upload_to='teenager/%Y/%m/%d/')
+	image = models.ImageField(upload_to='teenager/%Y/%m/%d/')
 	phone_number = models.CharField(max_length = 11)
 
 
@@ -37,4 +37,14 @@ class Student(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('teen_detail',kwargs={'pk':self.pk})
+
+
+	def save(self, *args, **kwargs):
+	    super().save(*args, **kwargs)
+	    img = Image.open(self.image.path)
+
+	    if img.height > 300 or img.width > 300:
+	        output_size = (300, 300)
+	        img.thumbnail(output_size)
+	        img.save(self.image.path)
 

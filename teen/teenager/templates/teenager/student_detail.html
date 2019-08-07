@@ -12,14 +12,32 @@
 
 						<div class="card-new">
 							<div class="card-background">
-								<img class="card-image" src="{{ object.Image.url }}">
+								<img class="card-image" src="{{ object.image.url }}">
 							</div>
 							<div class="card-info">
 								<p><strong>{{ object.first_name }}</strong> {{object.last_name }} {{object.middle_name}}</p>			
 							</div>
-							<div class="card-social-icons">
-								 <a href="{% url 'update_teen' object.id %}"> <i class="fa fa_fn fa-edit" aria-hidden="true"></i></a>
-								<a href="mailto: {{object.email_address}}"><i class="fa fa_fn fa-envelope" aria-hidden="true"></i></a>
+							<div>
+								<ul class="ul">
+									<li class="li">
+										<a href="{% url 'update_teen' object.id %}">
+											<div class="icon">
+												<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
+												<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
+											</div>
+											<div class="nameo"><span data-text="Edit" >Edit</span></div>
+										</a>
+									</li>
+									<li class="li">
+										<a href="mailto: {{object.email_address}}">
+											<div class="icon">
+												<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
+												<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
+											</div>
+											<div class="nameo"><span data-text="Email">Email</span></div>
+										</a>
+									</li>
+								</ul>
 							</div>
 
 						</div>

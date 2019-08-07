@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'teenager.apps.TeenagerConfig',
     'accounts.apps.AccountsConfig',
     'bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
+    'tempus_dominus'
 ]
 
 MIDDLEWARE = [
