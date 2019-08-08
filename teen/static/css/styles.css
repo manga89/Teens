@@ -47,9 +47,10 @@ body {
 
 .card-new{
 	background-color:#dcdde1;
-	width:500px;
+	width:700px;
 	height: 450px;
 	text-align: center;
+	padding-bottom: 10px;
 
 }
 
@@ -80,7 +81,7 @@ width:100%;
 }
 
 .card {
-	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .ul {
@@ -264,4 +265,9 @@ width:100%;
 .ull .lii a:hover .nam span{
 	transform: translateY(24px);
 
+}
+.fa_r{
+
+	float: right;
+	color: white;
 }

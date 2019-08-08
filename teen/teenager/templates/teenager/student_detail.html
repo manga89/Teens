@@ -7,105 +7,121 @@
 	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 	<div class="container">
-		 <div class="row">
-				<div class="col-sm-6">
-
-						<div class="card-new">
-							<div class="card-background">
-								<img class="card-image" src="{{ object.image.url }}">
-							</div>
-							<div class="card-info">
-								<p><strong>{{ object.first_name }}</strong> {{object.last_name }} {{object.middle_name}}</p>			
-							</div>
-							<div>
-								<ul class="ul">
-									<li class="li">
-										<a href="{% url 'update_teen' object.id %}">
-											<div class="icon">
-												<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
-												<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
-											</div>
-											<div class="nameo"><span data-text="Edit" >Edit</span></div>
-										</a>
-									</li>
-									<li class="li">
-										<a href="mailto: {{object.email_address}}">
-											<div class="icon">
-												<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
-												<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
-											</div>
-											<div class="nameo"><span data-text="Email">Email</span></div>
-										</a>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-						
-				</div>
-				<div class="col-sm-6">
-
-					<div class="card">
-						<div class="card-header panel-hed">
-							<h3 class="panel-title">Bio</h3>
-						</div>
-						<div class="card-body">
-							<address>
-								<strong>Date of Birth</strong><br>
-								{{object.age}}
-							</address>
-							<address>
-								<strong>Gender</strong><br>
-								{{object.gender}}
-							</address>
-							<address>
-								<strong>State of Origin</strong><br>
-								{{object.state_of_origin}}
-							</address>
-						</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="card-new">
+					<div class="card-background">
+						<img class="card-image" src="{{ object.image.url }}">
 					</div>
-					<div class="card">
-						<div class="card-header panel-hed">
-							<h3 class="panel-tile">Next of kin</h3>
-						</div>
-						<div class="card-body">
-							<address>
-								<strong>Name of Parent </strong><br>
-								{{object.parent_full_name }}
-							</address>
-							<address>
-								<strong>Parent Phone Number</strong><br>
-								{{object.parent_phone_number }}
-							</address>
-							<address>
-								<strong>Step</strong><br>
-								{{object.step}} 
-							</address>
-							<address>
-								<strong>Phone</strong><br>
-								{{ object.mobile_phone }}
-							</address>
-						</div>
+					<div class="card-info">
+						<p><strong>{{ object.first_name }}</strong> {{object.last_name }} {{object.middle_name}}</p>			
 					</div>
-					<div class="card">
-						<div class="card-header panel-hed">
-							<h3 class="panel-title">
-								Address
-							</h3>
-						</div>
-						<div class="card-body">
-							<address>
-								<strong>Address</strong><br>
-								{{object.address}}
-							</address>
-
-							<address>
-								<strong>Email</strong><br>
-								<a href="mailto: {{object.email_address}}">{{object.email_address}}</a>
-							</address>
-						</div>
+					<div>
+						<ul class="ul">
+							<li class="li">
+								<a href="{% url 'update_teen' object.id %}">
+									<div class="icon">
+										<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
+										<i class="fa fa_fn fa-edit" aria-hidden="true"></i>
+									</div>
+									<div class="nameo"><span data-text="Edit" >Edit</span></div>
+								</a>
+							</li>
+							<li class="li">
+								<a href="mailto: {{object.email_address}}">
+									<div class="icon">
+										<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
+										<i class="fa fa_fn fa-envelope" aria-hidden="true"></i>
+									</div>
+									<div class="nameo"><span data-text="Email">Email</span></div>
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
+				<div class="card">
+					<div class="card-header panel-hed">
+						<h3 class="panel-title">Education <i class="fa fa_fnn fa-graduation-cap"></i><a href="{% url 'teen_school' object.id %}"><i class="fa fa_r fa-plus"></i></a></h3>
+
+					</div>
+					<div class="card-body">
+						<address>
+							<strong>Date of Birth</strong><br>
+							{{object.age}}
+						</address>
+						<address>
+							<strong>Gender</strong><br>
+							{{object.gender}}
+						</address>
+						<address>
+							<strong>State of Origin</strong><br>
+							{{object.state_of_origin}}
+						</address>
+					</div>
+				</div>
+			</div>		
+			<div class="col-sm-4">
+				<div class="card">
+					<div class="card-header panel-hed">
+						<h3 class="panel-title">Bio <i class="fa fa_r fa-user"></i></h3>
+					</div>
+					<div class="card-body">
+						<address>
+							<strong>Date of Birth</strong><br>
+							{{object.age}}
+						</address>
+						<address>
+							<strong>Gender</strong><br>
+							{{object.gender}}
+						</address>
+						<address>
+							<strong>State of Origin</strong><br>
+							{{object.state_of_origin}}
+						</address>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header panel-hed">
+						<h3 class="panel-tile">Next of kin<i class="fa fa_r fa-users"></i></h3>
+					</div>
+					<div class="card-body">
+						<address>
+							<strong>Name of Parent </strong><br>
+							{{object.parent_full_name }}
+						</address>
+						<address>
+							<strong>Parent Phone Number</strong><br>
+							{{object.parent_phone_number }}
+						</address>
+						<address>
+							<strong>Step</strong><br>
+							{{object.step}} 
+						</address>
+						<address>
+							<strong>Phone</strong><br>
+							{{ object.mobile_phone }}
+						</address>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-header panel-hed">
+						<h3 class="panel-title">
+							Address <i class="fa fa_r fa-home"></i>
+						</h3>
+					</div>
+					<div class="card-body">
+						<address>
+							<strong>Address</strong><br>
+							{{object.address}}
+						</address>
+
+						<address>
+							<strong>Email</strong><br>
+							<a href="mailto: {{object.email_address}}">{{object.email_address}}</a>
+						</address>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

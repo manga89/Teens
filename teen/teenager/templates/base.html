@@ -120,12 +120,21 @@
                                     </a>
                                 </li>
                                 <li class="lii list-group-item bgcolor">
-                                    <a href="mailto: {{object.email_address}}">
+                                    <a href="{% url 'student_create' %}">
                                         <div class="iconn">
-                                            <i class="fa fa_fnn fa-envelope" aria-hidden="true"></i>
-                                            <i class="fa fa_fnn fa-envelope" aria-hidden="true"></i>
+                                            <i class="fa fa_fnn fa-plus" aria-hidden="true"></i>
+                                            <i class="fa fa_fnn fa-plus" aria-hidden="true"></i>
                                         </div>
-                                        <div class="nam"><span data-text="Email">Email</span></div>
+                                        <div class="nam"><span data-text="Add">Add</span></div>
+                                    </a>
+                                </li>
+                                <li class="lii list-group-item bgcolor">
+                                    <a href="#">
+                                        <div class="iconn">
+                                            <i class="fa fa_fnn fa-calendar" aria-hidden="true"></i>
+                                            <i class="fa fa_fnn fa-calendar" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="nam"><span data-text="Birthdays">Birthdays</span></div>
                                     </a>
                                 </li>
                             </ul>

@@ -48,3 +48,29 @@ class Student(models.Model):
 	        img.thumbnail(output_size)
 	        img.save(self.image.path)
 
+
+
+class Institution(models.Model):
+   
+	CLASS = (('JSS-1','JSS-1'),('JSS-2','JSS-2'),('JSS-3','JSS-3'),('SS-1','SS-1'),('SS-2','SS-2'),('SS-3','SS-3'),('100L','100L'),
+		('200L','200L'),('300L','300L'),('400L','400L'),('500L','500L'),
+		('ND1','ND1'),('ND-2','ND-2'),('HND-1','HND-2'))
+	student = models.ForeignKey(Student, on_delete=models.CASCADE)
+	school = models.CharField(max_length=300)
+	degree = models.CharField(max_length=200, default="Nil")
+	field_of_study=models.CharField(max_length=200, default="Nil")
+	grade_or_class = models.CharField(max_length=200, choices=CLASS)
+	started = models.DateField(auto_now=False, auto_now_add=False , null=True)
+	ended = models.DateField(auto_now=False, auto_now_add=False , null=True)
+	timestamp = models.DateField(auto_now_add=True)
+	updated = models.DateField(auto_now=True)
+
+
+	def __str__(self):
+	    return self.school + " : " + self.grade_or_class
+
+	class Meta:
+	    ordering = ['-updated', '-timestamp']
+
+	def get_absolute_url(self):
+	    return reverse('teen_detail', kwargs={'pk':self.pk})
