@@ -71,6 +71,3 @@ class Institution(models.Model):
 
 	class Meta:
 	    ordering = ['-updated', '-timestamp']
-
-	def get_absolute_url(self):
-	    return reverse('teen_detail', kwargs={'pk':self.pk})

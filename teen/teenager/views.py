@@ -6,8 +6,13 @@ from django.views.generic.edit import CreateView,UpdateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from .models import Student,Institution
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404 
 from .forms import StudentCreateForm, InstitutionCreateForm
+from django.urls import reverse_lazy
+from django.views.generic.edit import DeleteView
+
+
 # Create your views here.
 class HomePageView(TemplateView):
 	template_name = 'teenager/home.html'
@@ -29,9 +34,9 @@ class StudentListView(ListView):
 
 class StudentUpdateView(UpdateView):
 	model = Student
-	fields =['first_name', 'last_name', 'middle_name','date_of_birth','state_of_origin','email_address', 
-			'image', 'phone_number', 'parent_full_name', 'parent_phone_number', 'address', ]
+	form_class = StudentCreateForm
 	template_name ='teenager/student_form.html'
+
 
 class InstitutionCreateView(CreateView):
 	model = Institution
@@ -41,6 +46,61 @@ class InstitutionCreateView(CreateView):
 		form.instance.student = Student.objects.get(id=self.kwargs.get('pk'))
 		return super(InstitutionCreateView, self).form_valid(form)
 
-class InstitutionListView(ListView):
+def institute_create(request, stud_id):
+    form = InstitutionCreateForm(request.POST or None, request.FILES or None)
+    student = get_object_or_404(Student, pk=stud_id)
+    if form.is_valid():
+        student_institution = student.institution_set.all()
+        institution = form.save(commit=False)
+        institution.student = student
+        institution.save()
+        return HttpResponseRedirect(student.get_absolute_url())
+    context = {
+        'student': student,
+        'form': form,
+    }
+    return render(request, 'teenager/institution_form.html', context)
+
+
+
+class InstituteEditView(UpdateView):
 	model = Institution
-	template_name = 'teenager/student_list.html'
+	form_class = InstitutionCreateForm
+
+	def form_valid(self,form):
+		form.instance.student = Student.objects.get(id=self.kwargs.get('pk'))
+		return super(InstitutionCreateView, self).form_valid(form)
+
+
+def edit_inst(request, stud_id, inst_id):
+    student = get_object_or_404(Student, pk=stud_id)
+    institution = get_object_or_404(Institution, pk=inst_id)
+    form = InstitutionCreateForm(request.POST or None, request.FILES or None, instance=institution)
+    if form.is_valid():
+        institution = form.save()
+        return HttpResponseRedirect(student.get_absolute_url())
+    context = {'student': student,
+               'form': form
+               }
+    return render(request, 'teenager/institution_form.html', context)
+
+
+def delete_inst(request, stud_id, inst_id):
+    student = get_object_or_404(Student, pk=stud_id)
+    institution = Institution.objects.get(pk=inst_id)
+    institution.delete()
+    return HttpResponseRedirect(student.get_absolute_url())
+
+
+
+class BirdayView(ListView):
+    model = Student
+    context_object_name = 'birthdays'
+    template_name = 'teenager/birthday.html'
+    
+
+
+
+
+
+

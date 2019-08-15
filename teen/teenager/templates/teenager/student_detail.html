@@ -44,19 +44,64 @@
 						<h3 class="panel-title">Education <i class="fa fa_fnn fa-graduation-cap"></i><a href="{% url 'teen_school' object.id %}"><i class="fa fa_r fa-plus"></i></a></h3>
 
 					</div>
-					<div class="card-body">
-						<address>
-							<strong>Date of Birth</strong><br>
-							{{object.age}}
-						</address>
-						<address>
-							<strong>Gender</strong><br>
-							{{object.gender}}
-						</address>
-						<address>
-							<strong>State of Origin</strong><br>
-							{{object.state_of_origin}}
-						</address>
+
+					<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+						<a role="button" class="btn btn-success fa fa-plus fa-lg" href="#">Add</a>
+
+						{% if error_message %}
+							<p><strong>{{ error_message }}</strong></p>
+						{% endif %}
+
+						<table class="table table-bordered table-hover">
+							<thead class="thead-blue">
+							<tr>
+								<th>Name</th>
+								<th>Field</th>
+								<th>Degree</th>
+								<th>Grade</th>
+								<th>Started</th>
+								<th>Ended</th>
+								<th class="borderless"></th>
+								<th class="borderless"></th>
+							</tr>
+							</thead>
+							<tbody>
+							{% for inst in object.institution_set.all %}
+								<tr>
+									<td>{{ inst.school }}</td>
+									<td>
+										 {{ inst.field_of_study }}
+									</td>
+									<td>
+											{{ inst.degree }}
+									</td>
+									<td>
+											{{ inst.grade_or_class }}
+									</td>
+									<td>
+											{{ inst.started|date:"Y" }}
+									</td>
+									<td>
+											{{ inst.ended|date:"Y" }}
+									</td>
+									<td>
+										<a role="button" href="{% url 'edit_school' object.id inst.id %}"><i class="fa fa-edit"></i></a>
+									</td>
+
+									<td>
+										<form action="{% url 'delete_inst' object.id inst.id %}" method="post" style="display: inline;">
+											{% csrf_token %}
+											<input type="hidden" name="inst_id" value="{{ inst.id }}" />
+											<button type="submit" onclick="return confirm('Are you sure to delete this teens detail ?');" style="border: 0; background: none; color: red;">
+									            <i class="fa fa-remove" aria-hidden="true"></i>
+									        </button>
+
+										</form>
+									</td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>		

@@ -271,3 +271,31 @@ width:100%;
 	float: right;
 	color: white;
 }
+
+
+.sub {
+    background: none;
+}
+
+#header-search-submit {
+    position: absolute;
+    z-index: 1;
+    padding: 0;
+    right: 15px;
+    top: 6px;
+    font-size: 24px;
+    font-family: FontAwesome;
+    color: #7B7B7B;
+    cursor: pointer;
+    background: 0;
+    border: 0;
+}
+
+.thead-blue{
+	background: #1A237E;
+	color: white;
+}
+
+.borderless{
+	border: none;
+}
