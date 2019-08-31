@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from PIL import Image
+from datetime import datetime, date
 # Create your models here.
 
 #models for the teenagers.
@@ -47,6 +48,17 @@ class Student(models.Model):
 	        output_size = (300, 300)
 	        img.thumbnail(output_size)
 	        img.save(self.image.path)
+
+	@property
+	def bday(self):
+		bdate = self.date_of_birth
+		bdate2 = date.today()
+		yr = bdate2.year
+		current = bdate.replace(year=yr)
+		#datetime_object = datetime.strptime( " bdate.month bate.day", "%m %d")
+		return current
+
+
 
 
 

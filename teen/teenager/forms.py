@@ -1,6 +1,9 @@
 from django.forms import ModelForm
+from django import forms
 from tempus_dominus.widgets import DatePicker
 from .models import Student, Institution
+from accounts.models import Profile
+from django.contrib.auth.models import User
 
 class StudentCreateForm(ModelForm):
 	class Meta:
@@ -41,3 +44,18 @@ class InstitutionCreateForm(ModelForm):
 				)
 		}
 
+
+#form to update user profile on the profile display page.
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['email']
+
+
+#form to to update user profile.
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']

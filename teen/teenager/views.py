@@ -11,6 +11,8 @@ from django.shortcuts import get_object_or_404
 from .forms import StudentCreateForm, InstitutionCreateForm
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -18,27 +20,27 @@ class HomePageView(TemplateView):
 	template_name = 'teenager/home.html'
 
 
-class StudentCreateView(CreateView):
+class StudentCreateView(LoginRequiredMixin, CreateView):
 	model = Student
 	form_class = StudentCreateForm
 
 
-class StudentDetailView(DetailView):
+class StudentDetailView(LoginRequiredMixin, DetailView):
 	model = Student
 	context_object_name = 'teen'
 
 
-class StudentListView(ListView):
+class StudentListView(LoginRequiredMixin, ListView):
 	model = Student
 	context_object_name = 'teens'
 
-class StudentUpdateView(UpdateView):
+class StudentUpdateView(LoginRequiredMixin, UpdateView):
 	model = Student
 	form_class = StudentCreateForm
 	template_name ='teenager/student_form.html'
 
 
-class InstitutionCreateView(CreateView):
+class InstitutionCreateView(LoginRequiredMixin, CreateView):
 	model = Institution
 	form_class = InstitutionCreateForm
 
@@ -46,6 +48,7 @@ class InstitutionCreateView(CreateView):
 		form.instance.student = Student.objects.get(id=self.kwargs.get('pk'))
 		return super(InstitutionCreateView, self).form_valid(form)
 
+@login_required
 def institute_create(request, stud_id):
     form = InstitutionCreateForm(request.POST or None, request.FILES or None)
     student = get_object_or_404(Student, pk=stud_id)
@@ -71,7 +74,7 @@ class InstituteEditView(UpdateView):
 		form.instance.student = Student.objects.get(id=self.kwargs.get('pk'))
 		return super(InstitutionCreateView, self).form_valid(form)
 
-
+@login_required
 def edit_inst(request, stud_id, inst_id):
     student = get_object_or_404(Student, pk=stud_id)
     institution = get_object_or_404(Institution, pk=inst_id)
@@ -84,7 +87,7 @@ def edit_inst(request, stud_id, inst_id):
                }
     return render(request, 'teenager/institution_form.html', context)
 
-
+@login_required
 def delete_inst(request, stud_id, inst_id):
     student = get_object_or_404(Student, pk=stud_id)
     institution = Institution.objects.get(pk=inst_id)
@@ -93,7 +96,7 @@ def delete_inst(request, stud_id, inst_id):
 
 
 
-class BirdayView(ListView):
+class BirdayView(LoginRequiredMixin, ListView):
     model = Student
     context_object_name = 'birthdays'
     template_name = 'teenager/birthday.html'

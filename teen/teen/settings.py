@@ -126,6 +126,9 @@ USE_TZ = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_URL = '/static/'
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL ='all_teens'
+LOGOUT_REDIRECT_URL = 'login'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
@@ -134,3 +137,4 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

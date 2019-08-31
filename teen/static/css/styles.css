@@ -2,6 +2,34 @@ body {
 	font-family: sans-serif;
 }
 
+.navbar {
+	height: 3rem;
+}
+
+.account-logo {
+
+border-radius: 50%;
+display: block;
+height: 150px;
+margin-left: auto;
+margin-right: auto;
+ width: 150px;
+
+
+}
+
+.account-img {
+
+border-radius: 50%;
+display: block;
+height: 150px;
+margin-left: auto;
+margin-right: auto;
+ width: 150px;
+
+
+}
+
 .bg-new {
 	background: #182C61 !important;
 	color: #f5f6fa !important;
@@ -45,7 +73,7 @@ body {
     padding-top: 0;
 }
 
-.card-new{
+.new{
 	background-color:#dcdde1;
 	width:700px;
 	height: 450px;
@@ -86,8 +114,8 @@ width:100%;
 
 .ul {
 	position: absolute;
-	top:40%;
-	left: 25%;
+	top:75%;
+	left: 30%;
 	transition: translate(-50%,-50%);
 	margin:0;
 	padding:20px 0;
@@ -183,7 +211,6 @@ width:100%;
 
 
 /*  no sidebar */
-
 
 
 .ull .lii {
@@ -298,4 +325,8 @@ width:100%;
 
 .borderless{
 	border: none;
+}
+
+.h1-titles {
+	color: white;
 }

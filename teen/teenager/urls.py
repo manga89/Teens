@@ -4,7 +4,6 @@ from .views import HomePageView, StudentCreateView, StudentDetailView, StudentLi
 InstitutionCreateView,InstituteEditView, edit_inst, institute_create, delete_inst, BirdayView
 
 urlpatterns = [
-path('', HomePageView.as_view(), name='home'),
 path('create/', StudentCreateView.as_view(), name ='student_create' ),
 path('all/', StudentListView.as_view(), name='all_teens'),
 path('<pk>/detail/', StudentDetailView.as_view(), name="teen_detail"),
